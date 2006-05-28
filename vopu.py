@@ -15,11 +15,14 @@ def UnicodeStream(stream, encoding="utf8"):
     only unicode objects. These are encoded to and decoded from the given
     stream using the given encoding.
 
-    Arguments:
-    stream -- wrapped byte stream
-    encoding -- encoding of stream (default: UTF-8)
+    This is a simpler interface to the codecs package.
 
-    Example:
+    Arguments:
+      - stream -- wrapped byte stream
+      - encoding -- encoding of stream (default: UTF-8)
+
+    Examples:
+
     >>> import sys
     >>> ustream = UnicodeStream(sys.stdout)
     >>> ustream.write(u"abc")
@@ -43,6 +46,7 @@ class StringStream:
     r"""Stream which writes into a byte string.
 
     Example:
+
     >>> stream = StringStream()
     >>> stream.content
     ''
@@ -73,9 +77,10 @@ class StringStream:
         """Create a new StringStream.
 
         Arguments:
-        content -- initial content (default: "")
+          - content -- initial content (default: "")
 
         Examples:
+
         >>> stream = StringStream()
         >>> stream.content
         ''
@@ -92,7 +97,7 @@ class StringStream:
         That means, append the given string to this stream's content.
 
         Arguments:
-        str -- byte string to write into this stream
+          - str -- byte string to write into this stream
         """
         self.content += str
 
@@ -111,24 +116,34 @@ def readlines(obj, encoding="utf8"):
     Line endings are preserved.
 
     Arguments:
-    obj -- byte string, byte stream or unicode object to read from
-    encoding -- encoding of obj (default: UTF-8)
+      - obj -- byte string, byte stream or unicode object to read from
+      - encoding -- encoding of obj (default: UTF-8)
 
     Examples:
+
     >>> obj = u"Line1\nLine2\nLine3\n"
-    >>> tuple(readlines(obj))
-    (u'Line1\n', u'Line2\n', u'Line3\n')
+    >>> for line in readlines(obj):
+    ...     print repr(line)
+    u'Line1\n'
+    u'Line2\n'
+    u'Line3\n'
 
     >>> obj = "Line1\nLine2\nLine3\n"
-    >>> tuple(readlines(obj))
-    (u'Line1\n', u'Line2\n', u'Line3\n')
+    >>> for line in readlines(obj):
+    ...     print repr(line)
+    u'Line1\n'
+    u'Line2\n'
+    u'Line3\n'
 
     >>> import os
     >>> stream = os.tmpfile()
-    >>> stream.write(obj)
+    >>> stream.write("Line1\nLine2\nLine3\n")
     >>> stream.seek(0)
-    >>> tuple(readlines(stream))
-    (u'Line1\n', u'Line2\n', u'Line3\n')
+    >>> for line in readlines(obj):
+    ...     print repr(line)
+    u'Line1\n'
+    u'Line2\n'
+    u'Line3\n'
     """
     if isinstance(obj, basestring):
         if isinstance(obj, str):
@@ -139,14 +154,27 @@ def readlines(obj, encoding="utf8"):
 
 
 def split_labeled_uri(labeleduri, default=u""):
-    """split a labeled URI into its URI and its label.
+    """Split a labeled URI into its URI and its label.
+
+    If the labeled URI doesn't contain a label, return the default label.
+
+    Arguments:
+      - labeleduri -- unicode string containing the labeled URI
+      - default -- fallback label (default: u"")
 
     Examples:
+
     >>> split_labeled_uri(u"http://www.google.com/ This is Google.")
     (u'http://www.google.com/', u'This is Google.')
 
-    >>> split_labeled_uri(u"http://www.google.com/\\t  leading and trailing spaces ")
-    (u'http://www.google.com/', u'leading and trailing spaces')
+    >>> split_labeled_uri(u"http://www.google.com/  \\t surrounding spaces ")
+    (u'http://www.google.com/', u'surrounding spaces')
+
+    >>> split_labeled_uri(u"http://www.google.com/ given label", u"default label")
+    (u'http://www.google.com/', u'given label')
+
+    >>> split_labeled_uri(u"http://www.google.com/", u"default label")
+    (u'http://www.google.com/', u'default label')
     """
     parts = labeleduri.strip().split(u" ", 1)
     uri = parts[0].strip()
@@ -158,11 +186,16 @@ def split_labeled_uri(labeleduri, default=u""):
 
 
 def camelcase(ustr, maxlen=None):
-    """convert a unicode string into CamelCase.
+    """Convert a unicode string into CamelCase.
 
-    If maxlen is not None, it specifies the maximum length of each word.
+    When maxlen is not None, each word is truncated to the length maxlen.
+
+    Arguments:
+      - labeleduri -- unicode string to convert
+      - maxlen -- maximum length of each word (default: None)
 
     Examples:
+
     >>> camelcase(u"Abc")
     u'Abc'
     >>> camelcase(u"abc")
