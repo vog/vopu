@@ -3,7 +3,7 @@
 (C) 2006  Volker Grabsch <vog@notjusthosting.com>
 """
 
-__version__ = "1.0"
+__version__ = "1.1"
 
 import codecs
 
