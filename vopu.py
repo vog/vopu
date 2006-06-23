@@ -3,7 +3,7 @@
 (C) 2006  Volker Grabsch <vog@notjusthosting.com>
 """
 
-__version__ = "1.1"
+__version__ = "1.2"
 
 import codecs
 
@@ -226,6 +226,7 @@ def camelcase(ustr, maxlen=None):
 
 
 def _test():
+    """Run all doc tests of this module."""
     import doctest
     import vopu
     return doctest.testmod(vopu)
