@@ -65,10 +65,10 @@ class StringStream:
     >>> stream.content = "new content"
     >>> str(stream) == stream.content
     True
-    >>> print >>stream, "s"
+    >>> print >>stream, "Z"
     >>> print >>stream, "Line2"
     >>> stream.content
-    'new contents\nLine2\n'
+    'new contentZ\nLine2\n'
     >>> str(stream) == stream.content
     True
     """
@@ -120,6 +120,13 @@ def readlines(obj, encoding="utf8"):
       - encoding -- encoding of obj (default: UTF-8)
 
     Examples:
+
+    >>> obj = u"Line1\nLine2\nLine3"
+    >>> for line in readlines(obj):
+    ...     print repr(line)
+    u'Line1\n'
+    u'Line2\n'
+    u'Line3'
 
     >>> obj = u"Line1\nLine2\nLine3\n"
     >>> for line in readlines(obj):
