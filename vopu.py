@@ -232,6 +232,50 @@ def camelcase(ustr, maxlen=None):
     return u"".join(word[:maxlen].capitalize() for word in ustr.split())
 
 
+class OrderedByCreation(object):
+
+    """Base class for objects which are ordered by their creation time.
+
+    Example:
+
+    >>> a = OrderedByCreation()
+    >>> b = OrderedByCreation()
+    >>> c = OrderedByCreation()
+    >>> a < b
+    True
+    >>> b < c
+    True
+    >>> all = [b, c, a]
+    >>> all.sort()
+    >>> all == [a, b, c]
+    True
+    """
+
+    __counter = 0
+
+    def __init__(self):
+        """Create a new OrderedByCreation object."""
+        self.__class__.__counter += 1
+        self.__key = self.__class__.__counter
+
+    def __cmp__(self, other):
+        """Compare two OrderedByCreation objects by their creation time.
+
+        Example:
+
+        >>> a = OrderedByCreation()
+        >>> b = OrderedByCreation()
+        >>> c = OrderedByCreation()
+        >>> cmp(a, b)
+        -1
+        >>> cmp(b, b)
+        0
+        >>> cmp(c, b)
+        1
+        """
+        return cmp(self.__key, other.__key)
+
+
 def _test():
     """Run all doc tests of this module."""
     import doctest
