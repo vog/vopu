@@ -41,7 +41,7 @@ def UnicodeStream(stream, encoding="utf8"):
     return codecs.StreamReaderWriter(stream, reader, writer)
 
 
-class StringStream:
+class StringStream(object):
 
     r"""Stream which writes into a byte string.
 
