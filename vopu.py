@@ -296,6 +296,48 @@ class OrderedByCreation(object):
         return cmp(self.__key, other.__key)
 
 
+class InitAttributes(object):
+
+    """Base class for objects whose constructor initializes all attributes.
+
+    Example:
+
+    >>> obj = InitAttributes(myattr=u"value1", self=10)
+    >>> obj.myattr
+    u'value1'
+    >>> obj.self
+    10
+    """
+
+    def __init__(*args, **kwargs):
+        """Create a new InitAttributes object.
+
+        All keyword arguments are converted into attributes.
+        No positional arguments are allowed:
+
+        >>> obj = InitAttributes(100, myattr=u"value1")
+        Traceback (most recent call last):
+            ...
+        TypeError: this constructor takes only keyword arguments
+
+        For security reasons, all keywords must start with
+        an alphabetic character:
+
+        >>> obj = InitAttributes(_myattr=2)
+        Traceback (most recent call last):
+            ...
+        NameError: invalid attribute name: '_myattr'
+        """
+        try:
+            (self,) = args
+        except ValueError:
+            raise TypeError("this constructor takes only keyword arguments")
+        for name, value in kwargs.iteritems():
+            if not name[0].isalpha():
+                raise NameError("invalid attribute name: %r" % name)
+            setattr(self, name, value)
+
+
 def _test():
     """Run all doc tests of this module."""
     import doctest
