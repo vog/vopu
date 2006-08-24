@@ -93,7 +93,7 @@ class StringStream(object):
     'new contentZ\nLine2\n'
     """
 
-    def __init__(self, content=""):
+    def __init__(self, content="", *args, **kwargs):
         """Create a new StringStream.
 
         Arguments:
@@ -109,6 +109,7 @@ class StringStream(object):
         >>> stream.content
         'spam'
         """
+        super(StringStream, self).__init__(content=content, *args, **kwargs)
         self.content = content
 
     def write(self, str):
@@ -273,8 +274,9 @@ class OrderedByCreation(object):
 
     __counter = 0
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Create a new OrderedByCreation object."""
+        super(OrderedByCreation, self).__init__(*args, **kwargs)
         self.__class__.__counter += 1
         self.__key = self.__class__.__counter
 
@@ -332,6 +334,7 @@ class InitAttributes(object):
             (self,) = args
         except ValueError:
             raise TypeError("this constructor takes only keyword arguments")
+        super(InitAttributes, self).__init__(**kwargs)
         for name, value in kwargs.iteritems():
             if not name[0].isalpha():
                 raise NameError("invalid attribute name: %r" % name)
