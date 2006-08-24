@@ -27,19 +27,19 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-__version__ = "1.2"
+__version__ = "1.3"
 
 import codecs
 
 
-def UnicodeStream(stream, encoding="utf8"):
+def UnicodeStream(stream, encoding=u"utf8"):
     """Stream wrapper which automatically encodes and decodes.
+
+    Simpler interface to the codecs package.
 
     Return a stream whose methods read(), write(), ... take and return
     only unicode objects. These are encoded to and decoded from the given
     stream using the given encoding.
-
-    This is a simpler interface to the codecs package.
 
     Arguments:
       - stream -- wrapped byte stream
@@ -83,18 +83,14 @@ class StringStream(object):
     >>> print >>stream, "spam"
     >>> stream.content
     'foobarspam\n'
-    >>> str(stream) == stream.content
-    True
+    >>> str(stream)
+    'foobarspam\n'
 
     >>> stream.content = "new content"
-    >>> str(stream) == stream.content
-    True
     >>> print >>stream, "Z"
     >>> print >>stream, "Line2"
     >>> stream.content
     'new contentZ\nLine2\n'
-    >>> str(stream) == stream.content
-    True
     """
 
     def __init__(self, content=""):
@@ -134,7 +130,7 @@ class StringStream(object):
         return self.content
 
 
-def readlines(obj, encoding="utf8"):
+def readlines(obj, encoding=u"utf8"):
     r"""Return an iterator that steps through the lines of obj.
 
     Line endings are preserved.
