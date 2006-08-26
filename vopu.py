@@ -277,8 +277,8 @@ class OrderedByCreation(object):
     def __init__(self, *args, **kwargs):
         """Create a new OrderedByCreation object."""
         super(OrderedByCreation, self).__init__(*args, **kwargs)
-        self.__class__.__counter += 1
-        self.__key = self.__class__.__counter
+        OrderedByCreation.__counter += 1
+        self.__key = OrderedByCreation.__counter
 
     def __cmp__(self, other):
         """Compare two OrderedByCreation objects by their creation time.
