@@ -27,7 +27,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-__version__ = "1.3"
+__version__ = "1.4"
 
 
 import codecs
@@ -340,6 +340,36 @@ class InitAttributes(object):
             if not name[0].isalpha():
                 raise NameError("invalid attribute name: %r" % name)
             setattr(self, name, value)
+
+
+_latex_special_chars = {
+    u"#":  u"\\#",
+    u"$":  u"\\$",
+    u"%":  u"\\%",
+    u"&":  u"\\&",
+    u"_":  u"\\_",
+    u"{":  u"\\{",
+    u"}":  u"\\}",
+    u"\"": u"{''}",
+    u"\\": u"\\backslash{}",
+}
+
+def escape_latex(s):
+    """Escape a unicode string for LaTeX.
+
+    Arguments:
+      - s -- unicode object to escape for LaTeX
+
+    Examples:
+
+    >>> s = u'\\\\"{}_&%a$b#\\nc"\\\\'
+    >>> escape_latex(s)
+    u"\\\\backslash{}{''}\\\\{\\\\}\\\\_\\\\&\\\\%a\\\\$b\\\\#\\nc{''}\\\\backslash{}"
+    >>> print escape_latex(s)
+    \\backslash{}{''}\\{\}\\_\\&\\%a\\$b\\#
+    c{''}\\backslash{}
+    """
+    return u"".join(_latex_special_chars.get(c, c) for c in s)
 
 
 def _test():
