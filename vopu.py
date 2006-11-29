@@ -43,7 +43,7 @@ def UnicodeStream(stream, encoding=u"utf8"):
     stream using the given encoding.
 
     Arguments:
-      - stream -- wrapped byte stream
+      - stream -- byte stream to wrap
       - encoding -- encoding of stream (default: UTF-8)
 
     Examples:
@@ -135,7 +135,7 @@ class StringStream(object):
 def readlines(obj, encoding=u"utf8"):
     r"""Return an iterator that steps through the lines of obj.
 
-    Line endings are preserved.
+    Line endings are preserved. The iterator returns unicode objects.
 
     Arguments:
       - obj -- byte string, byte stream or unicode object to read from
