@@ -4,8 +4,8 @@ MODULE = vopu
 TMPFILES = *.pyc doc/
 
 RM = rm -rf
-EPYDOC = PYTHONVER=2.4 epydoc --no-frames
-PYTHON = python2.4
+EPYDOC = epydoc --no-frames
+PYTHON = python
 
 
 default: test doc
