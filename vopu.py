@@ -375,8 +375,7 @@ def escape_latex(s):
 def _test():
     """Run all doc tests of this module."""
     import doctest
-    import vopu
-    return doctest.testmod(vopu)
+    return doctest.testmod()
 
 if __name__ == "__main__":
     _test()
