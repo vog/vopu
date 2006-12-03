@@ -238,7 +238,7 @@ def camelcase(ustr, maxlen=None):
     Arguments
     =========
 
-      - labeleduri -- unicode string to convert
+      - ustr -- unicode string to convert
       - maxlen -- maximum length of each word (default: None)
 
     Examples
