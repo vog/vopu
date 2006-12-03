@@ -3,9 +3,10 @@
 This module contains various functions and classes which are very
 useful for my daily work with Python.
 
----
+Copyright
+=========
 
-Copyright (c) 2006  Volker Grabsch <vog@notjusthosting.com>
+(c) 2006  Volker Grabsch <vog@notjusthosting.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -42,11 +43,14 @@ def UnicodeStream(stream, encoding=u"utf8"):
     only unicode objects. These are encoded to and decoded from the given
     stream using the given encoding.
 
-    Arguments:
+    Arguments
+    =========
+
       - stream -- byte stream to wrap
       - encoding -- encoding of stream (default: UTF-8)
 
-    Examples:
+    Examples
+    ========
 
     >>> import sys
     >>> ustream = UnicodeStream(sys.stdout)
@@ -70,7 +74,8 @@ class StringStream(object):
 
     r"""Stream which writes into a byte string.
 
-    Example:
+    Example
+    =======
 
     >>> stream = StringStream()
     >>> stream.content
@@ -97,10 +102,13 @@ class StringStream(object):
     def __init__(self, content="", *args, **kwargs):
         """Create a new StringStream.
 
-        Arguments:
+        Arguments
+        =========
+
           - content -- initial content (default: "")
 
-        Examples:
+        Examples
+        ========
 
         >>> stream = StringStream()
         >>> stream.content
@@ -118,7 +126,9 @@ class StringStream(object):
 
         That means, append the given string to this stream's content.
 
-        Arguments:
+        Arguments
+        =========
+
           - str -- byte string to write into this stream
         """
         self.content += str
@@ -137,11 +147,14 @@ def readlines(obj, encoding=u"utf8"):
 
     Line endings are preserved. The iterator returns unicode objects.
 
-    Arguments:
+    Arguments
+    =========
+
       - obj -- byte string, byte stream or unicode object to read from
       - encoding -- encoding of obj (default: UTF-8)
 
-    Examples:
+    Examples
+    ========
 
     >>> obj = u"Line1\nLine2\nLine3"
     >>> for line in readlines(obj):
@@ -187,11 +200,14 @@ def split_labeled_uri(labeleduri, default=u""):
 
     If the labeled URI doesn't contain a label, return the default label.
 
-    Arguments:
+    Arguments
+    =========
+
       - labeleduri -- unicode string containing the labeled URI
       - default -- fallback label (default: u"")
 
-    Examples:
+    Examples
+    ========
 
     >>> split_labeled_uri(u"http://www.google.com/ This is Google.")
     (u'http://www.google.com/', u'This is Google.')
@@ -219,11 +235,14 @@ def camelcase(ustr, maxlen=None):
 
     When maxlen is not None, each word is truncated to the length maxlen.
 
-    Arguments:
+    Arguments
+    =========
+
       - labeleduri -- unicode string to convert
       - maxlen -- maximum length of each word (default: None)
 
-    Examples:
+    Examples
+    ========
 
     >>> camelcase(u"Abc")
     u'Abc'
@@ -258,7 +277,8 @@ class OrderedByCreation(object):
 
     """Base class for objects which are ordered by their creation time.
 
-    Example:
+    Example
+    =======
 
     >>> a = OrderedByCreation()
     >>> b = OrderedByCreation()
@@ -284,7 +304,8 @@ class OrderedByCreation(object):
     def __cmp__(self, other):
         """Compare two OrderedByCreation objects by their creation time.
 
-        Example:
+        Example
+        =======
 
         >>> a = OrderedByCreation()
         >>> b = OrderedByCreation()
@@ -303,7 +324,8 @@ class InitAttributes(object):
 
     """Base class for objects whose constructor initializes all attributes.
 
-    Example:
+    Example
+    =======
 
     >>> obj = InitAttributes(myattr=u"value1", self=10)
     >>> obj.myattr
@@ -357,10 +379,13 @@ _latex_special_chars = {
 def escape_latex(s):
     """Escape a unicode string for LaTeX.
 
-    Arguments:
+    Arguments
+    =========
+
       - s -- unicode object to escape for LaTeX
 
-    Examples:
+    Examples
+    ========
 
     >>> s = u'\\\\"{}_&%a$b#\\nc"\\\\'
     >>> escape_latex(s)
