@@ -1,1 +1,4 @@
-^doc/
+^doc/.*\.css$
+^doc/.*\.html$
+\.pyc$
+\.pyo$
