@@ -1,5 +1,3 @@
-#!/usr/bin/env make
-
 MODULE = vopu
 TMPFILES = *.pyc doc/
 
