@@ -1,7 +1,10 @@
-MODULE = vopu
-TMPFILES = *.pyc doc/
+PACKAGE = vopu
 
-RM = rm -rf
+SRCFILES = $(shell find -name '*.py')
+PYCFILES = $(SRCFILES:.py=.pyc)
+PYOFILES = $(SRCFILES:.py=.pyo)
+TMPFILES = $(PYCFILES) $(PYOFILES) doc/
+
 EPYDOC = epydoc --no-frames
 PYTHON = python
 
@@ -9,11 +12,13 @@ PYTHON = python
 default: test doc
 
 test:
-	$(PYTHON) $(MODULE).py
+	$(PYTHON) $(PACKAGE).py
 
 doc: doc/index.html
-doc/index.html: $(MODULE).py
-	$(EPYDOC) -o doc/ $(MODULE).py
+doc/index.html: $(SRCFILES)
+	$(EPYDOC) -o doc -n "$(PACKAGE) API Documentation" $(SRCFILES)
 
 clean:
-	$(RM) $(wildcard $(TMPFILES))
+	$(RM) -r $(wildcard $(TMPFILES))
+
+.PHONY: default test doc clean
