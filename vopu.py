@@ -5,7 +5,6 @@ useful for my daily work with Python.
 
 Copyright
 =========
-
 (c) 2006  Volker Grabsch <vog@notjusthosting.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -28,7 +27,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-__version__ = "1.5"
+__version__ = "1.6"
 
 
 import codecs
@@ -45,13 +44,11 @@ def UnicodeStream(stream, encoding=u"utf8"):
 
     Arguments
     =========
-
       - stream -- byte stream to wrap
       - encoding -- encoding of stream (default: UTF-8)
 
     Examples
     ========
-
     >>> import sys
     >>> ustream = UnicodeStream(sys.stdout)
     >>> ustream.write(u"abc")
@@ -76,7 +73,6 @@ class StringStream(object):
 
     Example
     =======
-
     >>> stream = StringStream()
     >>> stream.content
     ''
@@ -104,12 +100,10 @@ class StringStream(object):
 
         Arguments
         =========
-
           - content -- initial content (default: "")
 
         Examples
         ========
-
         >>> stream = StringStream()
         >>> stream.content
         ''
@@ -128,7 +122,6 @@ class StringStream(object):
 
         Arguments
         =========
-
           - str -- byte string to write into this stream
         """
         self.content += str
@@ -149,13 +142,11 @@ def readlines(obj, encoding=u"utf8"):
 
     Arguments
     =========
-
       - obj -- byte string, byte stream or unicode object to read from
       - encoding -- encoding of obj (default: UTF-8)
 
     Examples
     ========
-
     >>> obj = u"Line1\nLine2\nLine3"
     >>> for line in readlines(obj):
     ...     print repr(line)
@@ -202,13 +193,11 @@ def split_labeled_uri(labeleduri, default=u""):
 
     Arguments
     =========
-
       - labeleduri -- unicode string containing the labeled URI
       - default -- fallback label (default: u"")
 
     Examples
     ========
-
     >>> split_labeled_uri(u"http://www.google.com/ This is Google.")
     (u'http://www.google.com/', u'This is Google.')
 
@@ -237,13 +226,11 @@ def camelcase(ustr, maxlen=None):
 
     Arguments
     =========
-
       - ustr -- unicode string to convert
       - maxlen -- maximum length of each word (default: None)
 
     Examples
     ========
-
     >>> camelcase(u"Abc")
     u'Abc'
     >>> camelcase(u"abc")
@@ -279,7 +266,6 @@ class OrderedByCreation(object):
 
     Example
     =======
-
     >>> a = OrderedByCreation()
     >>> b = OrderedByCreation()
     >>> c = OrderedByCreation()
@@ -306,7 +292,6 @@ class OrderedByCreation(object):
 
         Example
         =======
-
         >>> a = OrderedByCreation()
         >>> b = OrderedByCreation()
         >>> c = OrderedByCreation()
@@ -326,7 +311,6 @@ class InitAttributes(object):
 
     Example
     =======
-
     >>> obj = InitAttributes(myattr=u"value1", self=10)
     >>> obj.myattr
     u'value1'
@@ -381,12 +365,10 @@ def escape_latex(s):
 
     Arguments
     =========
-
       - s -- unicode object to escape for LaTeX
 
     Examples
     ========
-
     >>> s = u'\\\\"{}_&%a$b#\\nc"\\\\'
     >>> escape_latex(s)
     u"\\\\backslash{}{''}\\\\{\\\\}\\\\_\\\\&\\\\%a\\\\$b\\\\#\\nc{''}\\\\backslash{}"
