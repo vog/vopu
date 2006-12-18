@@ -27,7 +27,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
-__version__ = "1.6"
+__version__ = "1.7"
 
 
 import codecs
@@ -44,8 +44,8 @@ def UnicodeStream(stream, encoding=u"utf8"):
 
     Arguments
     =========
-      - stream -- byte stream to wrap
-      - encoding -- encoding of stream (default: UTF-8)
+        - stream -- byte stream to wrap
+        - encoding -- encoding of stream (default: UTF-8)
 
     Examples
     ========
@@ -100,7 +100,7 @@ class StringStream(object):
 
         Arguments
         =========
-          - content -- initial content (default: "")
+            - content -- initial content (default: "")
 
         Examples
         ========
@@ -122,7 +122,7 @@ class StringStream(object):
 
         Arguments
         =========
-          - str -- byte string to write into this stream
+            - str -- byte string to write into this stream
         """
         self.content += str
 
@@ -142,8 +142,8 @@ def readlines(obj, encoding=u"utf8"):
 
     Arguments
     =========
-      - obj -- byte string, byte stream or unicode object to read from
-      - encoding -- encoding of obj (default: UTF-8)
+        - obj -- byte string, byte stream or unicode object to read from
+        - encoding -- encoding of obj (default: UTF-8)
 
     Examples
     ========
@@ -193,8 +193,8 @@ def split_labeled_uri(labeleduri, default=u""):
 
     Arguments
     =========
-      - labeleduri -- unicode string containing the labeled URI
-      - default -- fallback label (default: u"")
+        - labeleduri -- unicode string containing the labeled URI
+        - default -- fallback label (default: u"")
 
     Examples
     ========
@@ -226,8 +226,8 @@ def camelcase(ustr, maxlen=None):
 
     Arguments
     =========
-      - ustr -- unicode string to convert
-      - maxlen -- maximum length of each word (default: None)
+        - ustr -- unicode string to convert
+        - maxlen -- maximum length of each word (default: None)
 
     Examples
     ========
