@@ -356,25 +356,40 @@ _latex_special_chars = {
     u"_":  u"\\_",
     u"{":  u"\\{",
     u"}":  u"\\}",
+    u"<":  u"$<$",
+    u">":  u"$>$",
+    u"^":  u"\\^{}",
+    u"~":  u"\\~{}", # ~ would result in a space
+    u"`":  u"{}`",   # avoid ?` and !`
     u"\"": u"{''}",
-    u"\\": u"\\backslash{}",
+    u"\n": u"\\\\",
+    u"\\": u"$\\backslash$",
 }
 
 def escape_latex(s):
-    """Escape a unicode string for LaTeX.
+    r"""Escape a unicode string for LaTeX.
+
+    Warning
+    =======
+    The source string must not contain empty lines such as:
+        - u"\n..." -- empty first line
+        - u"...\n\n..." -- empty line in between
+        - u"...\n" -- empty last line
 
     Arguments
     =========
-      - s -- unicode object to escape for LaTeX
+        - s -- unicode object to escape for LaTeX
 
     Examples
     ========
-    >>> s = u'\\\\"{}_&%a$b#\\nc"\\\\'
+    >>> s = u'\\"{}_&%a$b#\nc"\\'
     >>> escape_latex(s)
-    u"\\\\backslash{}{''}\\\\{\\\\}\\\\_\\\\&\\\\%a\\\\$b\\\\#\\nc{''}\\\\backslash{}"
+    u"$\\backslash${''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{''}$\\backslash$"
+    >>> print s
+    \"{}_&%a$b#
+    c"\
     >>> print escape_latex(s)
-    \\backslash{}{''}\\{\}\\_\\&\\%a\\$b\\#
-    c{''}\\backslash{}
+    $\backslash${''}\{\}\_\&\%a\$b\#\\c{''}$\backslash$
     """
     return u"".join(_latex_special_chars.get(c, c) for c in s)
 
