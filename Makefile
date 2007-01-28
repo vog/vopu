@@ -5,7 +5,7 @@ PYCFILES = $(SRCFILES:.py=.pyc)
 PYOFILES = $(SRCFILES:.py=.pyo)
 TMPFILES = $(PYCFILES) $(PYOFILES) doc/
 
-EPYDOC = epydoc --no-frames
+EPYDOC = epydoc --no-frames --docformat restructuredtext
 PYTHON = python
 
 

@@ -3,36 +3,30 @@
 This module contains various functions and classes which are very
 useful for my daily work with Python.
 
-Version
-=======
-1.7
+http://www.profv.de/vopu/
 
-Requires
-========
-Python 2.4 or higher
+:Version:   1.8
+:Requires:  Python 2.4 or higher
+:Author:    Volker Grabsch <vog@notjusthosting.com>
+:License: 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject
+    to the following conditions:
 
-Copyright
-=========
-(c) 2006-2007  Volker Grabsch <vog@notjusthosting.com>
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject
-to the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
 
@@ -48,13 +42,10 @@ def UnicodeStream(stream, encoding=u"utf8"):
     only unicode objects. These are encoded to and decoded from the given
     stream using the given encoding.
 
-    Arguments
-    =========
-        - stream -- byte stream to wrap
-        - encoding -- encoding of stream (default: UTF-8)
+    :Parameters:
+        - `stream`: byte stream to wrap
+        - `encoding`: encoding of stream (default: UTF-8)
 
-    Examples
-    ========
     >>> import sys
     >>> ustream = UnicodeStream(sys.stdout)
     >>> ustream.write(u"abc")
@@ -77,8 +68,6 @@ class StringStream(object):
 
     r"""Stream which writes into a byte string.
 
-    Example
-    =======
     >>> stream = StringStream()
     >>> stream.content
     ''
@@ -104,12 +93,9 @@ class StringStream(object):
     def __init__(self, content="", *args, **kwargs):
         """Create a new StringStream.
 
-        Arguments
-        =========
-            - content -- initial content (default: "")
+        :Parameters:
+            - `content`: initial content (default: "")
 
-        Examples
-        ========
         >>> stream = StringStream()
         >>> stream.content
         ''
@@ -126,9 +112,8 @@ class StringStream(object):
 
         That means, append the given string to this stream's content.
 
-        Arguments
-        =========
-            - str -- byte string to write into this stream
+        :Parameters:
+            - `str`: byte string to write into this stream
         """
         self.content += str
 
@@ -146,13 +131,10 @@ def readlines(obj, encoding=u"utf8"):
 
     Line endings are preserved. The iterator returns unicode objects.
 
-    Arguments
-    =========
-        - obj -- byte string, byte stream or unicode object to read from
-        - encoding -- encoding of obj (default: UTF-8)
+    :Parameters:
+        - `obj`: byte string, byte stream or unicode object to read from
+        - `encoding`: encoding of obj (default: UTF-8)
 
-    Examples
-    ========
     >>> obj = u"Line1\nLine2\nLine3"
     >>> for line in readlines(obj):
     ...     print repr(line)
@@ -197,13 +179,10 @@ def split_labeled_uri(labeleduri, default=u""):
 
     If the labeled URI doesn't contain a label, return the default label.
 
-    Arguments
-    =========
-        - labeleduri -- unicode string containing the labeled URI
-        - default -- fallback label (default: u"")
+    :Parameters:
+        - `labeleduri`: unicode string containing the labeled URI
+        - `default`: fallback label (default: u"")
 
-    Examples
-    ========
     >>> split_labeled_uri(u"http://www.google.com/ This is Google.")
     (u'http://www.google.com/', u'This is Google.')
 
@@ -228,15 +207,10 @@ def split_labeled_uri(labeleduri, default=u""):
 def camelcase(ustr, maxlen=None):
     """Convert a unicode string into CamelCase.
 
-    When maxlen is not None, each word is truncated to the length maxlen.
+    :Parameters:
+        - `ustr`: unicode string to convert
+        - `maxlen`: maximum length of each word (default: None)
 
-    Arguments
-    =========
-        - ustr -- unicode string to convert
-        - maxlen -- maximum length of each word (default: None)
-
-    Examples
-    ========
     >>> camelcase(u"Abc")
     u'Abc'
     >>> camelcase(u"abc")
@@ -248,6 +222,8 @@ def camelcase(ustr, maxlen=None):
     u'ThisIsAText'
     >>> camelcase(u"This is a text", None)
     u'ThisIsAText'
+
+    When maxlen is not None, each word is truncated to the length maxlen.
 
     >>> camelcase(u"This is a text", 4)
     u'ThisIsAText'
@@ -270,8 +246,6 @@ class OrderedByCreation(object):
 
     """Base class for objects which are ordered by their creation time.
 
-    Example
-    =======
     >>> a = OrderedByCreation()
     >>> b = OrderedByCreation()
     >>> c = OrderedByCreation()
@@ -296,8 +270,6 @@ class OrderedByCreation(object):
     def __cmp__(self, other):
         """Compare two OrderedByCreation objects by their creation time.
 
-        Example
-        =======
         >>> a = OrderedByCreation()
         >>> b = OrderedByCreation()
         >>> c = OrderedByCreation()
@@ -315,8 +287,6 @@ class InitAttributes(object):
 
     """Base class for objects whose constructor initializes all attributes.
 
-    Example
-    =======
     >>> obj = InitAttributes(myattr=u"value1", self=10)
     >>> obj.myattr
     u'value1'
@@ -375,19 +345,15 @@ _latex_special_chars = {
 def escape_latex(s):
     r"""Escape a unicode string for LaTeX.
 
-    Warning
-    =======
-    The source string must not contain empty lines such as:
-        - u"\n..." -- empty first line
-        - u"...\n\n..." -- empty line in between
-        - u"...\n" -- empty last line
+    :Warning:
+        The source string must not contain empty lines such as:
+            - u"\n..." -- empty first line
+            - u"...\n\n..." -- empty line in between
+            - u"...\n" -- empty last line
 
-    Arguments
-    =========
-        - s -- unicode object to escape for LaTeX
+    :Parameters:
+        - `s`: unicode object to escape for LaTeX
 
-    Examples
-    ========
     >>> s = u'\\"{}_&%a$b#\nc"\\'
     >>> escape_latex(s)
     u"$\\backslash${''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{''}$\\backslash$"
