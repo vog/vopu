@@ -5,7 +5,7 @@ useful for my daily work with Python.
 
 http://www.profv.de/vopu/
 
-:Version:   1.8
+:Version:   1.9
 :Requires:  Python 2.4 or higher
 :Author:    Volker Grabsch <vog@notjusthosting.com>
 :License: 
@@ -325,21 +325,25 @@ class InitAttributes(object):
 
 
 _latex_special_chars = {
-    u"#":  u"\\#",
     u"$":  u"\\$",
     u"%":  u"\\%",
     u"&":  u"\\&",
+    u"#":  u"\\#",
     u"_":  u"\\_",
     u"{":  u"\\{",
     u"}":  u"\\}",
-    u"<":  u"$<$",
-    u">":  u"$>$",
-    u"^":  u"\\^{}",
-    u"~":  u"\\~{}", # ~ would result in a space
-    u"`":  u"{}`",   # avoid ?` and !`
+    u"[":  u"{[}",
+    u"]":  u"{]}",
     u"\"": u"{''}",
+    u"\\": u"\\textbackslash{}",
+    u"~":  u"\\textasciitilde{}",
+    u"<":  u"\\textless{}",
+    u">":  u"\\textgreater{}",
+    u"^":  u"\\textasciicircum{}",
+    u"`":  u"{}`",   # avoid ?` and !`
     u"\n": u"\\\\",
-    u"\\": u"$\\backslash$",
+    # for more possible replacements see:
+    # http://svn.python.org/projects/doctools/trunk/sphinx/util/texescape.py
 }
 
 def escape_latex(s):
@@ -356,12 +360,12 @@ def escape_latex(s):
 
     >>> s = u'\\"{}_&%a$b#\nc"\\'
     >>> escape_latex(s)
-    u"$\\backslash${''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{''}$\\backslash$"
+    u"\\textbackslash{}{''}\\{\\}\\_\\&\\%a\\$b\\#\\\\c{''}\\textbackslash{}"
     >>> print s
     \"{}_&%a$b#
     c"\
     >>> print escape_latex(s)
-    $\backslash${''}\{\}\_\&\%a\$b\#\\c{''}$\backslash$
+    \textbackslash{}{''}\{\}\_\&\%a\$b\#\\c{''}\textbackslash{}
     """
     return u"".join(_latex_special_chars.get(c, c) for c in s)
 
