@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>vopu</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th bgcolor="#70b0f0" class="navselect">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="public/trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="public/indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="public/help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          vopu&nbsp;API&nbsp;Documentation
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <font size="-1"><b class="breadcrumbs">
+        Module&nbsp;vopu
+      </b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[<a href="public/../private/vopu-module.html">show&nbsp;private</a>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="public/frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="public/vopu-module.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td>
+</tr></table>
+
+<!-- =========== START OF MODULE DESCRIPTION =========== -->
+<h2 class="module">Module vopu</h2>
+
+<p>VoPU -- Volker's Python Utilities.</p>
+<p>This module contains various functions and classes which are very
+useful for my daily work with Python.</p>
+<p><a class="rst-reference" href="http://www.profv.de/vopu/">http://www.profv.de/vopu/</a></p>
+<hr/>
+<p><b>Version:</b> <p>1.9</p>
+</p>
+
+<p><b>Author:</b> <p>Volker Grabsch &lt;<a class="rst-reference" href="mailto:vog&#64;notjusthosting.com">vog&#64;notjusthosting.com</a>&gt;</p>
+</p>
+
+<p><b>License:</b> <p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject
+to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</p>
+
+<p><b>Requires:</b> <p>Python 2.4 or higher</p>
+</p>
+
+
+<!-- =========== START OF CLASSES =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Classes</th></tr>
+<tr><td width="15%">
+  <b><a href="public/vopu.InitAttributes-class.html"><code>InitAttributes</code></a></b></td>
+  <td>Base class for objects whose constructor initializes all attributes.</td></tr>
+<tr><td width="15%">
+  <b><a href="public/vopu.OrderedByCreation-class.html"><code>OrderedByCreation</code></a></b></td>
+  <td>Base class for objects which are ordered by their creation time.</td></tr>
+<tr><td width="15%">
+  <b><a href="public/vopu.StringStream-class.html"><code>StringStream</code></a></b></td>
+  <td>Stream which writes into a byte string.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF FUNCTION SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Function Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="public/vopu-module.html#camelcase" class="summary-sig-name"><code>camelcase</code></a>(<span class=summary-sig-arg>ustr</span>,
+          <span class=summary-sig-arg>maxlen</span>)</span></code>
+<br />
+Convert a unicode string into CamelCase.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="public/vopu-module.html#escape_latex" class="summary-sig-name"><code>escape_latex</code></a>(<span class=summary-sig-arg>s</span>)</span></code>
+<br />
+Escape a unicode string for LaTeX.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="public/vopu-module.html#readlines" class="summary-sig-name"><code>readlines</code></a>(<span class=summary-sig-arg>obj</span>,
+          <span class=summary-sig-arg>encoding</span>)</span></code>
+<br />
+Return an iterator that steps through the lines of obj.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="public/vopu-module.html#split_labeled_uri" class="summary-sig-name"><code>split_labeled_uri</code></a>(<span class=summary-sig-arg>labeleduri</span>,
+          <span class=summary-sig-arg>default</span>)</span></code>
+<br />
+Split a labeled URI into its URI and its label.</td></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class="summary-sig"><a href="public/vopu-module.html#UnicodeStream" class="summary-sig-name"><code>UnicodeStream</code></a>(<span class=summary-sig-arg>stream</span>,
+          <span class=summary-sig-arg>encoding</span>)</span></code>
+<br />
+Stream wrapper which automatically encodes and decodes.</td></tr>
+</table><br />
+
+
+<!-- =========== START OF FUNCTION DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Function Details</th></tr>
+</table>
+
+<a name="camelcase"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">camelcase</span>(<span class=sig-arg>ustr</span>,
+          <span class=sig-arg>maxlen</span>=<span class=sig-default>None</span>)</span>
+  </h3>
+<p>Convert a unicode string into CamelCase.</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; camelcase(u&quot;Abc&quot;)
+u'Abc'
+&gt;&gt;&gt; camelcase(u&quot;abc&quot;)
+u'Abc'
+&gt;&gt;&gt; camelcase(u&quot;ABC&quot;)
+u'Abc'
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;)
+u'ThisIsAText'
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;, None)
+u'ThisIsAText'
+</pre>
+<p>When maxlen is not None, each word is truncated to the length maxlen.</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;, 4)
+u'ThisIsAText'
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;, 3)
+u'ThiIsATex'
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;, 2)
+u'ThIsATe'
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;, 1)
+u'TIAT'
+&gt;&gt;&gt; camelcase(u&quot;This is a text&quot;, 0)
+u''
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; camelcase(u&quot;&quot;)
+u''
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>ustr</b></code> -
+ <p>unicode string to convert</p>
+      <dd><code><b>maxlen</b></code> -
+ <p>maximum length of each word (default: None)</p>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="escape_latex"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">escape_latex</span>(<span class=sig-arg>s</span>)</span>
+  </h3>
+<p>Escape a unicode string for LaTeX.</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; s = u'\\&quot;{}_&amp;%a$b#\nc&quot;\\'
+&gt;&gt;&gt; escape_latex(s)
+u&quot;\\textbackslash{}{''}\\{\\}\\_\\&amp;\\%a\\$b\\#\\\\c{''}\\textbackslash{}&quot;
+&gt;&gt;&gt; print s
+\&quot;{}_&amp;%a$b#
+c&quot;\
+&gt;&gt;&gt; print escape_latex(s)
+\textbackslash{}{''}\{\}\_\&amp;\%a\$b\#\\c{''}\textbackslash{}
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>s</b></code> -
+ <p>unicode object to escape for LaTeX</p>
+      </dd>
+    </dl>
+<p><b>Warning:</b> <dl class="docutils">
+<dt>The source string must not contain empty lines such as:</dt>
+<dd><ul class="first last rst-simple">
+<li>u&quot;n...&quot; -- empty first line</li>
+<li>u&quot;...nn...&quot; -- empty line in between</li>
+<li>u&quot;...n&quot; -- empty last line</li>
+</ul>
+</dd>
+</dl>
+</p>
+
+  </dd></dl>
+</td></tr></table>
+
+<a name="readlines"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">readlines</span>(<span class=sig-arg>obj</span>,
+          <span class=sig-arg>encoding</span>=<span class=sig-default>u'utf8'</span>)</span>
+  </h3>
+<p>Return an iterator that steps through the lines of obj.</p>
+<p>Line endings are preserved. The iterator returns unicode objects.</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; obj = u&quot;Line1\nLine2\nLine3&quot;
+&gt;&gt;&gt; for line in readlines(obj):
+...     print repr(line)
+u'Line1\n'
+u'Line2\n'
+u'Line3'
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; obj = u&quot;Line1\nLine2\nLine3\n&quot;
+&gt;&gt;&gt; for line in readlines(obj):
+...     print repr(line)
+u'Line1\n'
+u'Line2\n'
+u'Line3\n'
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; obj = &quot;Line1\nLine2\nLine3\n&quot;
+&gt;&gt;&gt; for line in readlines(obj):
+...     print repr(line)
+u'Line1\n'
+u'Line2\n'
+u'Line3\n'
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; import os
+&gt;&gt;&gt; stream = os.tmpfile()
+&gt;&gt;&gt; stream.write(&quot;Line1\nLine2\nLine3\n&quot;)
+&gt;&gt;&gt; stream.seek(0)
+&gt;&gt;&gt; for line in readlines(obj):
+...     print repr(line)
+u'Line1\n'
+u'Line2\n'
+u'Line3\n'
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>obj</b></code> -
+ <p>byte string, byte stream or unicode object to read from</p>
+      <dd><code><b>encoding</b></code> -
+ <p>encoding of obj (default: UTF-8)</p>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="split_labeled_uri"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">split_labeled_uri</span>(<span class=sig-arg>labeleduri</span>,
+          <span class=sig-arg>default</span>=<span class=sig-default>u''</span>)</span>
+  </h3>
+<p>Split a labeled URI into its URI and its label.</p>
+<p>If the labeled URI doesn't contain a label, return the default label.</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; split_labeled_uri(u&quot;http://www.google.com/ This is Google.&quot;)
+(u'http://www.google.com/', u'This is Google.')
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; split_labeled_uri(u&quot;http://www.google.com/  \t surrounding spaces &quot;)
+(u'http://www.google.com/', u'surrounding spaces')
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; split_labeled_uri(u&quot;http://www.google.com/ given label&quot;, u&quot;default label&quot;)
+(u'http://www.google.com/', u'given label')
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; split_labeled_uri(u&quot;http://www.google.com/&quot;, u&quot;default label&quot;)
+(u'http://www.google.com/', u'default label')
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>labeleduri</b></code> -
+ <p>unicode string containing the labeled URI</p>
+      <dd><code><b>default</b></code> -
+ <p>fallback label (default: u&quot;&quot;)</p>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+
+<a name="UnicodeStream"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class="sig"><span class="sig-name">UnicodeStream</span>(<span class=sig-arg>stream</span>,
+          <span class=sig-arg>encoding</span>=<span class=sig-default>u'utf8'</span>)</span>
+  </h3>
+<p>Stream wrapper which automatically encodes and decodes.</p>
+<p>Simpler interface to the codecs package.</p>
+<p>Return a stream whose methods read(), write(), ... take and return
+only unicode objects. These are encoded to and decoded from the given
+stream using the given encoding.</p>
+<pre class="doctest-block">
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; ustream = UnicodeStream(sys.stdout)
+&gt;&gt;&gt; ustream.write(u&quot;abc&quot;)
+abc
+</pre>
+<pre class="doctest-block">
+&gt;&gt;&gt; import os
+&gt;&gt;&gt; stream = os.tmpfile()
+&gt;&gt;&gt; stream.write(&quot;abc&quot;)
+&gt;&gt;&gt; stream.seek(0)
+&gt;&gt;&gt; ustream = UnicodeStream(stream)
+&gt;&gt;&gt; ustream.read()
+u'abc'
+</pre>
+  <dl><dt></dt><dd>
+    <dl><dt><b>Parameters:</b></dt>
+      <dd><code><b>stream</b></code> -
+ <p>byte stream to wrap</p>
+      <dd><code><b>encoding</b></code> -
+ <p>encoding of stream (default: UTF-8)</p>
+      </dd>
+    </dl>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th bgcolor="#70b0f0" class="navselect">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="public/trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="public/indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="public/help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar" align="right" width="100%">
+      <table border="0" cellpadding="0" cellspacing="0">
+      <tr><th class="navbar" align="center">
+        <p class="nomargin">
+          vopu&nbsp;API&nbsp;Documentation
+      </p></th></tr></table>
+    </th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 2.1 on Sun Aug 31 15:41:30 2008</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>
